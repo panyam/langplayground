@@ -1,0 +1,92 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+const app = require("../app");
+const debug = require("debug")("pc:server");
+const http = require("http");
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+function startServer(server, port) {
+  server.listen(port);
+
+  /**
+   * Event listener for http/https server "error" event.
+   */
+  server.on("error", function (error) {
+    if (error.syscall !== "listen") {
+      throw error;
+    }
+
+    const bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
+
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+      case "EACCES":
+        console.error(bind + " requires elevated privileges");
+        process.exit(1);
+        break;
+      case "EADDRINUSE":
+        console.error(bind + " is already in use");
+        process.exit(1);
+        break;
+      default:
+        throw error;
+    }
+  });
+
+  /**
+   * Event listener for HTTP/HTTPS server "listening" event.
+   */
+  server.on("listening", function () {
+    const addr = server.address();
+    const bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
+    debug("Listening on " + bind);
+  });
+}
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  const port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Get port from environment and store in Express.
+ */
+console.log("Starting http server");
+const port = normalizePort(process.env.PORT || "3000");
+// app.set("port", port);
+const server = http.createServer(app);
+startServer(server, port);
+
+// Also start https server
+if (process.argv[2] == "https") {
+  console.log("Starting https server");
+  const https = require("https");
+  const httpsPort = normalizePort(process.env.HTTPS_PORT || "3443");
+  const fs = require("fs");
+  const key = fs.readFileSync("./bin/ssl/key.pem");
+  const cert = fs.readFileSync("./bin/ssl/cert.pem");
+  const httpsServer = https.createServer({ key: key, cert: cert }, app);
+  startServer(httpsServer, httpsPort);
+}

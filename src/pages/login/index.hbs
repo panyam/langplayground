@@ -1,0 +1,25 @@
+{{#partial "header_block" }} <h2>Login</h2> {{/partial}}
+
+{{#partial "center_block" }}
+    <center>
+    <div>
+      <button>
+        <a href="/auth/facebook?callbackURL={{callbackURL}}"><img class="img" src="/static/images/continue_with_facebook.png" width="300" alt="Continue with Facebook"/></a>
+      </button>
+    </div>
+
+    <div>
+      <button>
+        <a href="/auth/google?callbackURL={{callbackURL}}"><img class="img" src="/static/images/googleSigninButtons/btn_google_signin_dark_normal_web@2x.png" width="300" alt="Sign in with Google"/></a>
+      </button>
+    </div>
+
+    <div>
+      <button>
+        <a href="/auth/github?callbackURL={{callbackURL}}"><img class="img" src="/static/images/signin_with_github.png" width="300" alt="Signin with Github"/></a>
+      </button>
+    </div>
+    </center>
+{{/partial}}
+
+{{>basepage}}

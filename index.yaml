@@ -1,0 +1,24 @@
+indexes:
+- kind: Collection
+  properties:
+  - name: visibility
+  - name: name
+    direction: asc
+
+- kind: Score
+  properties:
+  - name: visibility
+  - name: name
+    direction: asc
+
+- kind: Collection
+  properties:
+  - name: userId
+  - name: name
+    direction: asc
+
+- kind: Score
+  properties:
+  - name: userId
+  - name: name
+    direction: asc

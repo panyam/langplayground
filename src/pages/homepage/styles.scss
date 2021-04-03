@@ -1,0 +1,80 @@
+@import "../fecommon/global";
+
+#scores_tab {
+  position: absolute;
+  // left: 27%;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin: 20px;
+  border: solid 0px red;
+}
+
+.scoresDiv {
+  margin: 20px;
+  border: solid 0px red;
+}
+
+#search_bar {
+  position: absolute;
+  display: none;
+  // left: 27%;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  border-left: solid 2px blue;
+}
+
+#searchBox {
+  margin-right: 10px;
+}
+
+.tabButtonsRow {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  height: 50px;
+}
+
+.tabButton {
+  float: left;
+  width: 50%;
+  text-align: center;
+  font-size: x-large;
+  background-color: #dddddd;
+}
+
+.tabButton.selected {
+  font-weight: bold !important;
+  background-color: coral !important;
+}
+
+.tabButtonsRow:after {
+  content: "";
+  clear: both;
+}
+
+.tabContentRow {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top: 50px;
+  border: solid 0px blue;
+}
+
+.tabSelected {
+}
+
+.tabContent {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top: 0px;
+}

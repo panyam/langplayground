@@ -1,0 +1,27 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "buildbe",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"label": "npm: buildbe",
+			"detail": "tsc"
+		},
+		{
+			"type": "npm",
+			"script": "buildfe",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"label": "npm: buildfe",
+			"detail": "webpack"
+		}
+	]
+}

@@ -1,0 +1,27 @@
+{{#partial "header_block" }} <h2>Notations!</h2> {{/partial}}
+
+{{#partial "center_block" }}
+  <input type = "hidden" id = "userId" value = "\{{ userId }}" />
+  <div id = "scores_tab">
+    <div class = "tabButtonsRow"> 
+      <div class = "tabButton">All</div>
+      <div class = "tabButton">My Music</div>
+    </div>
+    <div class = "tabContentRow">
+      <div id = "all_scores_div" orderBy = "name" class = "tabContent scoresDiv">
+        All Scores
+      </div>
+      <div id = "my_scores_div" userId = "\{{ userId }}" orderBy = "name" class = "tabContent scoresDiv">
+      \{{#if userId }}
+      \{{else }}
+        You are not logged in.
+      \{{/if}}
+      </div>
+    </div>
+  </div>
+  <div id = "search_bar">
+    <input type = text id = "searchBox" placeholder = "Search score by name" />
+  </div>
+{{/partial}}
+
+{{>basepage}}
