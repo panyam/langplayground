@@ -11,8 +11,8 @@
             "program": "${workspaceFolder}/dist/bin/www",
             "args": ["https"],
             "skipFiles": [ "<node_internals>/**" ],
-            "env": {"DATASTORE_EMULATOR_HOST": "localhost:9091",
-            "DATASTORE_PROJECT_ID": "notations" },
+            "env": {"DATASTORE_EMULATOR_HOST": "localhost:7071",
+            "DATASTORE_PROJECT_ID": "langplayground" },
             "preLaunchTask": "${defaultBuildTask}"
         },
         {
